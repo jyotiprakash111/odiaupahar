@@ -49,3 +49,38 @@ body {
   border-right: 3px solid #facc15; /* Yellow-400 */
   animation: typing 2s steps(12, end), blink 0.75s step-end infinite;
 }
+
+
+/* Banner image styling */
+.banner-img {
+  @apply mb-6 rounded-full shadow-xl border-4 border-yellow-400 object-cover mx-auto;
+}
+
+/* Main heading text */
+.typing-heading {
+  @apply text-4xl font-semibold text-yellow-400 mx-auto w-fit;
+}
+
+/* "Coming Soon" title */
+.coming-soon-title {
+  @apply text-5xl font-bold;
+}
+
+/* Subtext */
+.coming-soon-text {
+  @apply text-gray-300 text-lg;
+}
+
+/* Email input */
+.input-field {
+  @apply flex-1 px-4 py-3 rounded-l-md
+    text-black bg-white border border-gray-300
+    dark:text-white dark:bg-gray-800 dark:border-gray-600
+    focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Notify button */
+.notify-button {
+  @apply px-6 py-3 rounded-r-md
+    bg-blue-600 hover:bg-blue-700 text-white font-medium;
+}
