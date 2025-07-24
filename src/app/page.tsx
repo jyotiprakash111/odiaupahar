@@ -13,15 +13,6 @@ export default function ComingSoonPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white px-4">
       {/* Center Layout with Side Dancers */}
       <div className="flex items-center gap-6 flex-wrap justify-center">
-        
-        {/* Left Dancer */}
-        {/* <Image
-          src="/odishi-dancer.jpg"
-          alt="Odissi Dancer Left"
-          width={120}
-          height={250}
-          className="hidden sm:block"
-        /> */}
 
         {/* Center Content */}
         <div className="text-center space-y-6 max-w-md">
@@ -53,15 +44,6 @@ export default function ComingSoonPage() {
           </div>
           <p className="text-sm text-gray-400 mt-4">We&apos;ll never spam you ✌️</p>
         </div>
-
-        {/* Right Dancer */}
-        {/* <Image
-          src="/odishi-dancer.jpg"
-          alt="Odissi Dancer Right"
-          width={250}
-          height={250}
-          className="hidden sm:block"
-        /> */}
       </div>
     </div>
   );
