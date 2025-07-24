@@ -1,15 +1,9 @@
 @import "tailwindcss";
 
+/* 🌙 Light/Dark Theme Support */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,48 +19,103 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* --------------------------------------
+   🎯 Reusable Animations & Keyframes
+--------------------------------------- */
 
-/* globals.css */
-
+/* Typing Text Animation */
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  0%   { width: 0; }
+  50%  { width: 100%; }
+  100% { width: 0; }
 }
 
 @keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+  0%, 100% { border-color: transparent; }
+  50% { border-color: yellow; }
 }
 
-.typing {
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid #facc15; /* Yellow-400 */
-  animation: typing 2s steps(12, end), blink 0.75s step-end infinite;
+/* Rocket Zoom */
+@keyframes rocket-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
 }
 
+/* Rocket Spin */
+@keyframes rocket-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
 
-/* Banner image styling */
+/* Rocket Shake */
+@keyframes rocket-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-1px); }
+}
+
+/* Rocket Launch */
+@keyframes rocket-launch {
+  0%   { transform: translateY(0) rotate(0deg); }
+  30%  { transform: translateY(-10px) rotate(-10deg); }
+  60%  { transform: translateY(-5px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Rocket Fly */
+@keyframes rocket-fly {
+  0%   { transform: translateX(0) rotate(0deg); opacity: 1; }
+  50%  { transform: translateX(60px) translateY(-20px) rotate(-20deg); opacity: 0.5; }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+/* Coming Soon Title Fade-in + Glow */
+@keyframes fade-slide-up {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 0px #facc15; }
+  50%      { text-shadow: 0 0 10px #facc15; }
+}
+
+/* --------------------------------------
+   ✨ Component Classes
+--------------------------------------- */
+
+/* Typing headline (like OdiaUpahar.com) */
+.typing-heading {
+  @apply text-4xl font-semibold text-yellow-400 mx-auto w-fit overflow-hidden whitespace-nowrap border-r-4 border-yellow-400;
+  animation: typing 4s steps(30, end) infinite, blink 0.75s step-end infinite;
+}
+
+/* Coming Soon Title + animation */
+.coming-soon-title {
+  @apply text-5xl font-bold text-white;
+  animation: fade-slide-up 1.2s ease-out forwards;
+}
+
+/* Optional: Continuous pulse/glow */
+.coming-soon-glow {
+  animation: glow 1.5s ease-in-out infinite;
+}
+.coming-soon-pulse {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+/* Banner Image */
 .banner-img {
   @apply mb-6 rounded-full shadow-xl border-4 border-yellow-400 object-cover mx-auto;
 }
 
-/* Main heading text */
-.typing-heading {
-  @apply text-4xl font-semibold text-yellow-400 mx-auto w-fit;
-}
-
-/* "Coming Soon" title */
-.coming-soon-title {
-  @apply text-5xl font-bold;
-}
-
-/* Subtext */
+/* Description text */
 .coming-soon-text {
   @apply text-gray-300 text-lg;
 }
@@ -74,13 +123,42 @@ body {
 /* Email input */
 .input-field {
   @apply flex-1 px-4 py-3 rounded-l-md
-    text-black bg-white border border-gray-300
-    dark:text-white dark:bg-gray-800 dark:border-gray-600
-    focus:outline-none focus:ring-2 focus:ring-blue-500;
+  text-black bg-white border border-gray-300
+  dark:text-white dark:bg-gray-800 dark:border-gray-600
+  focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
 
-/* Notify button */
+/* Notify Me button */
 .notify-button {
   @apply px-6 py-3 rounded-r-md
-    bg-blue-600 hover:bg-blue-700 text-white font-medium;
+  bg-blue-600 hover:bg-blue-700 text-white font-medium;
+}
+
+/* --------------------------------------
+   🚀 Rocket Icon Animation Classes
+--------------------------------------- */
+
+.rocket-icon.zoom-style {
+  display: inline-block;
+  animation: rocket-zoom 0.8s ease-in-out infinite;
+}
+
+.rocket-icon.spin-style {
+  display: inline-block;
+  animation: rocket-spin 1.2s linear infinite;
+}
+
+.rocket-icon.shake-style {
+  display: inline-block;
+  animation: rocket-shake 0.5s linear infinite;
+}
+
+.rocket-icon.launch-style {
+  display: inline-block;
+  animation: rocket-launch 1.5s ease-in-out infinite;
+}
+
+.rocket-icon.fly-style {
+  display: inline-block;
+  animation: rocket-fly 2s ease-in-out infinite;
 }
