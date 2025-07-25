@@ -92,13 +92,13 @@ body {
 
 /* Typing headline (like OdiaUpahar.com) */
 .typing-heading {
-  @apply text-4xl font-semibold text-yellow-400 mx-auto w-fit overflow-hidden whitespace-nowrap border-r-4 border-yellow-400;
+  @apply sm:text-3xl md:text-4xl text-5xl font-semibold text-yellow-400 mx-auto w-fit overflow-hidden whitespace-nowrap border-r-4 border-yellow-400;
   animation: typing 4s steps(30, end) infinite, blink 0.75s step-end infinite;
 }
 
 /* Coming Soon Title + animation */
 .coming-soon-title {
-  @apply text-5xl font-bold text-white;
+  @applytext-2xl sm:text-3xl md:text-4xl text-5xl font-bold text-white;
   animation: fade-slide-up 1.2s ease-out forwards;
 }
 
@@ -122,7 +122,8 @@ body {
 
 /* Email input */
 .input-field {
-  @apply flex-1 px-4 py-3 rounded-l-md
+  @apply flex-1 px-4 py-3 text-xs sm:text-sm md:text-base
+   rounded-l-md
   text-black bg-white border border-gray-300
   dark:text-white dark:bg-gray-800 dark:border-gray-600
   focus:outline-none focus:ring-2 focus:ring-blue-500;
